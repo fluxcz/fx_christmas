@@ -11,7 +11,7 @@
 
 # **Installation**
 
-1. Download the script
+1. Download the script and all requirements
 2. Put the `fx_christmas` folder into your `resources` directory
 3. Open `config.lua` and configure settings to your preference
 4. Add `ensure fx_christmas` to your `server.cfg`
