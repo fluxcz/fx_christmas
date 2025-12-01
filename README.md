@@ -7,6 +7,7 @@
 - `ox_inventory`
 - `ox_target`
 - `oxmysql`
+- `https://forum.cfx.re/t/props-christmas-for-mappers/5181133`
 
 # **Installation**
 
