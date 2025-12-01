@@ -208,6 +208,7 @@ RegisterNetEvent('fxchristmas:server:collect', function(index)
     
     TriggerClientEvent('fxchristmas:client:markcollected', src, index)
 
+    print(string.format('[FX_CHRISTMAS] Player: %s (%s) collected gift #%s and received: %s',
         GetPlayerName(src), identifier, index, table.concat(rewardsgiven, ', ')
     ))
 end)
@@ -253,3 +254,5 @@ AddEventHandler('playerDropped', function()
         lastsnowballpickup[src] = nil
     end
 end)
+
+checkversion()
