@@ -3,6 +3,32 @@ local lastcollectionattempt = {}
 local lastsnowballpickup = {}
 local collection_cooldown = 2000
 local snowball_cooldown = 2000
+local version = '1.0'
+
+local function checkversion()
+    CreateThread(function()
+        PerformHttpRequest('https://api.github.com/repos/fluxcz/fx_christmas/releases/latest', function(err, text, headers)
+            if err ~= 200 then
+                print('^1[FX_CHRISTMAS] Could not check for new version.^7')
+                return
+            end
+
+            local data = json.decode(text)
+            if data.tag_name == version then
+                print('^6[FX_CHRISTMAS] You are running the latest version.^7')
+            else
+                print('^1-------------------------------------------------')
+                print('^6New Version Released for fx_christmas\n')
+                print('^1Your Version: ^7'..version)
+                print('^6Newsest Version: ^7'..data.tag_name..'\n')
+                print('^6Changelog:^7')
+                print(data.body..'\n')
+                print('Get the updated version: https://github.com/fluxcz/fx_christmas/archive/refs/tags/'..data.tag_name..'.zip')
+                print('^1-------------------------------------------------^7')
+            end
+        end, 'GET')
+    end)
+end
 
 MySQL.ready(function()
     MySQL.query([[
